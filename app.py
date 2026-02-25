@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+import sys
 
 app = Flask(__name__)
 
@@ -186,4 +187,5 @@ def calculate():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5042)
+    port = sys.argv[1] if len(sys.argv) > 1 else 5042
+    app.run(debug=True, port=port)
